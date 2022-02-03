@@ -18,6 +18,7 @@ public class Spawner : MonoBehaviour
     {
         if (transform.position.y < bounds.y * (-2))
         {
+            BackgroundScroll.count--;
             Destroy(this.gameObject);
         }
     }

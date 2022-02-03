@@ -14,29 +14,34 @@ public class BackgroundScroll : MonoBehaviour
     private Vector2 bounds;
     private Camera mainCamera;
     private Rigidbody2D rb;
+    public static int count = 0;
     private void Start()
     {
         mainCamera = Camera.main;
         bounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         StartCoroutine(planetSpawn());
     }
-    private void Spawn(GameObject obj)
+    private void Spawn(GameObject obj) //need to calculate the distance to set a size
     {
-        GameObject s = Instantiate(obj) as GameObject;
-        s.transform.position = new Vector3(Random.Range(-bounds.x, bounds.x), bounds.y * 2, Random.Range(10, 110));
-        rb = s.GetComponent<Rigidbody2D>();
-        float parallaxSpeed = 1 - Mathf.Abs(transform.position.z / s.transform.position.z);
-        rb.velocity = new Vector2(0f, -planetSpeed * -parallaxSpeed);
+        if (count != 2)
+        {
+            count++;
+            GameObject s = Instantiate(obj) as GameObject;
+            s.transform.position = new Vector3(Random.Range(-bounds.x, bounds.x), bounds.y * 2, Random.Range(10, 110));
+            rb = s.GetComponent<Rigidbody2D>();
+            //SpriteRenderer sr = s.GetComponent<SpriteRenderer>();
+            float parallaxSpeed = 1 - Mathf.Abs(transform.position.z / s.transform.position.z);
+            rb.velocity = new Vector2(0f, -planetSpeed * -parallaxSpeed);
+            //sr.size = new Vector2();
+        }
     }
     IEnumerator planetSpawn()
     {
         while (true)
         {
             yield return new WaitForSeconds(respawnTime);
-            foreach (GameObject obj in planets)
-            {
-                Spawn(obj);
-            }
+            GameObject obj = planets[Random.Range(0, planets.Length)];
+            Spawn(obj);
         }
     }
     private void Awake()
@@ -47,12 +52,6 @@ public class BackgroundScroll : MonoBehaviour
     void Update()
     {
         Scroll();
-        foreach (GameObject obj in planets) {
-            if (obj.gameObject.transform.position.y < bounds.y * (-2))
-            {
-                Destroy(obj.gameObject);
-            }
-        }
     }
 
     void Scroll()

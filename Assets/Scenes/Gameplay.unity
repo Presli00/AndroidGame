@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maintainWidth: 1
-  maintainHeight: 1
   adaptPosition: 1
 --- !u!20 &519420031
 Camera:
@@ -335,7 +334,23 @@ MonoBehaviour:
   planetSpeed: 2
   planets:
   - {fileID: 1860479309656981169, guid: 00b38bcbaa606664c950d3811d3dbaad, type: 3}
-  respawnTime: 5
+  - {fileID: 6547836987115369454, guid: 25694be231dc8b942b96f88a65c077b9, type: 3}
+  - {fileID: 204576423665990463, guid: a473e562782120d44b48fa3f57a4346e, type: 3}
+  - {fileID: 7640788404279522779, guid: 1d1f7a3ff2156a64590c8ae396650fad, type: 3}
+  - {fileID: 7231799208281108833, guid: 012f6792860be3043bcf506a1741ac7f, type: 3}
+  - {fileID: 4891842106389004566, guid: cd91fd39eef99e249b4c9c8d124da63a, type: 3}
+  - {fileID: 5134543486525638421, guid: b5651ed863d88c9459261613efffcf23, type: 3}
+  - {fileID: 8427367262323695804, guid: 825cf122feb2fc84bb1738ba5803f930, type: 3}
+  - {fileID: 7034788047594062901, guid: e1245f5a1b49ba644936c1510415fdcf, type: 3}
+  - {fileID: 2033792924819746760, guid: 9db2e6ce06e533247ab7be9be0aa834a, type: 3}
+  - {fileID: 570670220090065644, guid: 641a011dc5ecd484eb3e3d226a6b7bd9, type: 3}
+  - {fileID: 3829063037475590872, guid: dff5c2ddc373d3249bbbb2634b70ac26, type: 3}
+  - {fileID: 5953948190069977970, guid: d3c7477c71e3ec940b76c1fe7db7495b, type: 3}
+  - {fileID: 7754206194312432374, guid: 4bea10ce25b11964f91a50c0f6cbe7de, type: 3}
+  - {fileID: 114652970862409171, guid: e2e9ebc2ea86e7b4a9a4ffe82ed659f6, type: 3}
+  - {fileID: 8297200790639034554, guid: e676a61a3ee2f5b46bc71f2ac964d373, type: 3}
+  - {fileID: 2636701208469247590, guid: 261ac27dab2f7654c9c2e1321756b037, type: 3}
+  respawnTime: 2
 --- !u!1 &1593771441
 GameObject:
   m_ObjectHideFlags: 0

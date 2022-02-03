@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 570670220090065645}
   - component: {fileID: 570670220090065646}
   - component: {fileID: 4332137512657920933}
+  - component: {fileID: 2559787176080209489}
   m_Layer: 0
   m_Name: Red-Planet-With-Ice
   m_TagString: Untagged
@@ -102,5 +103,17 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &2559787176080209489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570670220090065644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecbacdc9b6cd153488d396c745464399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
