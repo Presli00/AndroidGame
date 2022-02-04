@@ -19,7 +19,10 @@ public class BackgroundScroll : MonoBehaviour
     {
         mainCamera = Camera.main;
         bounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
-        StartCoroutine(planetSpawn());
+        if (planets.Length > 0)
+        {
+            StartCoroutine(planetSpawn());
+        }
     }
     private void Spawn(GameObject obj) //need to calculate the distance to set a size
     {
@@ -29,10 +32,21 @@ public class BackgroundScroll : MonoBehaviour
             GameObject s = Instantiate(obj) as GameObject;
             s.transform.position = new Vector3(Random.Range(-bounds.x, bounds.x), bounds.y * 2, Random.Range(10, 110));
             rb = s.GetComponent<Rigidbody2D>();
-            //SpriteRenderer sr = s.GetComponent<SpriteRenderer>();
+            SpriteRenderer sr = s.GetComponent<SpriteRenderer>();
             float parallaxSpeed = 1 - Mathf.Abs(transform.position.z / s.transform.position.z);
-            rb.velocity = new Vector2(0f, -planetSpeed * -parallaxSpeed);
-            //sr.size = new Vector2();
+            float alterSize = Mathf.Abs(transform.position.z - s.transform.position.z);
+            if (s.name.Equals("Galaxy"))
+            {
+                rb.velocity = new Vector2(0f, -planetSpeed);
+                sr.size = new Vector2(5 + sr.size.x, 5 + sr.size.y);
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.5f);
+            }
+            else
+            {
+                rb.velocity = new Vector2(0f, -planetSpeed * -parallaxSpeed);
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alterSize * 0.5f);
+                sr.size = new Vector2(5 + Mathf.Abs(alterSize / sr.size.x), 5 + Mathf.Abs(alterSize / sr.size.y));
+            }
         }
     }
     IEnumerator planetSpawn()
