@@ -6584,6 +6584,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2764792415236289784, guid: 51d0e31d3c70a8b43ac388967467b0c5, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764792415236289784, guid: 51d0e31d3c70a8b43ac388967467b0c5, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764792415236289784, guid: 51d0e31d3c70a8b43ac388967467b0c5, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2764792415891990596, guid: 51d0e31d3c70a8b43ac388967467b0c5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6632,9 +6644,21 @@ PrefabInstance:
       propertyPath: NewRunButton
       value: 
       objectReference: {fileID: 1214999557}
+    - target: {fileID: 2764792415891990597, guid: 51d0e31d3c70a8b43ac388967467b0c5, type: 3}
+      propertyPath: transitionTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2764792415891990619, guid: 51d0e31d3c70a8b43ac388967467b0c5, type: 3}
       propertyPath: m_Name
       value: LevelLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764792416443543702, guid: 51d0e31d3c70a8b43ac388967467b0c5, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 15498833}
+    - target: {fileID: 2764792416443543702, guid: 51d0e31d3c70a8b43ac388967467b0c5, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51d0e31d3c70a8b43ac388967467b0c5, type: 3}

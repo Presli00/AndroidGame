@@ -32,7 +32,6 @@ public class BackgroundScroll : MonoBehaviour
             GameObject s = Instantiate(obj) as GameObject;
             s.transform.position = new Vector3(Random.Range(-bounds.x, bounds.x), bounds.y * 2, Random.Range(10, 110));
             rb = s.GetComponent<Rigidbody2D>();
-            string n = obj.name;
             SpriteRenderer sr = s.GetComponent<SpriteRenderer>();
             float parallaxSpeed = 1 - Mathf.Abs(transform.position.z / s.transform.position.z);
             float alterSize = Mathf.Abs(transform.position.z - s.transform.position.z);
