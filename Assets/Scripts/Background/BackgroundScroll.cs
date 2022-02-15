@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class BackgroundScroll : MonoBehaviour
 {
+    //Camera and other shared parameters
+    private Camera mainCamera;
+    private Vector2 bounds;
+
+    //Background scroll
     public float speed = 10f;
-    public float planetSpeed = 2.0f;
     private MeshRenderer renderer;
     private float scroll;
 
+    //Planets
     public GameObject[] planets;
+    public float planetSpeed = 2.0f;
     public float respawnTime = 1.0f;
-    private Vector2 bounds;
-    private Camera mainCamera;
     private Rigidbody2D rb;
     public static int count = 0;
     private void Start()
@@ -21,7 +25,7 @@ public class BackgroundScroll : MonoBehaviour
         bounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         if (planets.Length > 0)
         {
-            StartCoroutine(planetSpawn());
+            StartCoroutine(Spawner());
         }
     }
     private void Spawn(GameObject obj) //need to calculate the distance to set a size
@@ -49,7 +53,7 @@ public class BackgroundScroll : MonoBehaviour
             }
         }
     }
-    IEnumerator planetSpawn()
+    IEnumerator Spawner()
     {
         while (true)
         {

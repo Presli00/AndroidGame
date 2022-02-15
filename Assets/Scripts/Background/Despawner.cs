@@ -18,9 +18,8 @@ public class Despawner : MonoBehaviour
     {
         if (transform.position.y < bounds.y * (-2))
         {
-            Destroy(this.gameObject);
             BackgroundScroll.count--;
-            Spawner.count--;
+            Destroy(this.gameObject);
         }
     }
 }

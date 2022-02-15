@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7939151635835701282}
   - component: {fileID: 7939151635835701283}
   - component: {fileID: 7939151635835701276}
-  - component: {fileID: 26001198868634051}
   m_Layer: 0
   m_Name: Asteroid 6
   m_TagString: Untagged
@@ -139,15 +138,3 @@ PolygonCollider2D:
       - {x: 0.17, y: -0.2}
       - {x: 0.32, y: -0.04}
       - {x: 0.3, y: 0.09}
---- !u!114 &26001198868634051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939151635835701277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecbacdc9b6cd153488d396c745464399, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
