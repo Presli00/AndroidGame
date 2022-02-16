@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     private float objWidth, objHeight;
     private Rigidbody2D rb;
     public float moveSpeed;
+    public float maxHealth = 100;
+    public float currentHealth;
+    public HealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +19,8 @@ public class Player : MonoBehaviour
         bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         objWidth = transform.GetComponent<CapsuleCollider2D>().bounds.size.x / 2;
         objHeight = transform.GetComponent<CapsuleCollider2D>().bounds.size.y / 2;
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
     // Update is called once per frame
     void Update()
@@ -27,20 +32,31 @@ public class Player : MonoBehaviour
             pos.z = 0;
             dir = (pos - transform.position);
             rb.velocity = new Vector2(dir.x, dir.y) * moveSpeed;
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, bounds.x*-1+objWidth, bounds.x-objWidth),Mathf.Clamp(transform.position.y,bounds.y*-1+objHeight,bounds.y-objHeight),transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, bounds.x * -1 + objWidth, bounds.x - objWidth), Mathf.Clamp(transform.position.y, bounds.y * -1 + objHeight, bounds.y - objHeight), transform.position.z);
             if (touch.phase == TouchPhase.Ended)
             {
                 rb.velocity = Vector2.zero;
             }
+        }
+        healthBar.GetComponent<Transform>().position = new Vector2(transform.position.x - 0.4f, transform.position.y);
+        if (currentHealth == 0)
+        {
+            this.gameObject.SetActive(false);
         }
     }
 
 
 
     //Work in progress
-    /*private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Took damage");
-        this.gameObject.SetActive(false);
-    }*/
+        Destroy(other.gameObject);
+        AsteroidSpawner.count--;
+        TakeDamage(20);
+    }
+    void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+    }
 }
