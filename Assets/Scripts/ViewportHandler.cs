@@ -5,11 +5,12 @@ using UnityEngine;
 public class ViewportHandler : MonoBehaviour
 {
     public bool maintainWidth = true;
-    [Range(-1,1)]
+    [Range(-1, 1)]
     public int adaptPosition;
     float defaultWidth, defaultHeight;
     Vector3 CameraPos;
-    void Start() {
+    void Start()
+    {
         CameraPos = Camera.main.transform.position;
         defaultHeight = Camera.main.orthographicSize;
         defaultWidth = Camera.main.orthographicSize * Camera.main.aspect;
@@ -22,9 +23,10 @@ public class ViewportHandler : MonoBehaviour
             Camera.main.orthographicSize = defaultWidth / Camera.main.aspect;
             Camera.main.transform.position = new Vector3(CameraPos.x, -1 * (defaultHeight - Camera.main.orthographicSize), CameraPos.z);
         }
-        else {
+        else
+        {
             Camera.main.transform.position = new Vector3(adaptPosition * (defaultWidth - Camera.main.orthographicSize * Camera.main.aspect), CameraPos.y, CameraPos.z);
         }
     }
-    
+
 }
