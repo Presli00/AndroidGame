@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
         if (currentHealth == 0)
         {
             this.gameObject.SetActive(false);
+            healthBar.gameObject.SetActive(false);
         }
     }
 
