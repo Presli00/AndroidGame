@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //movement and resizing parameters
     private Vector3 pos, dir;
     private Vector2 bounds;
     private float objWidth, objHeight;
     private Rigidbody2D rb;
     public float moveSpeed;
+
+    //Invulnerability
+    public Color flash;
+    public Color regularColor;
+    public float duration;
+    public int nFlashes;
+    public Collider2D trigger;
+    public SpriteRenderer sprite;
+
+    //Health
     public float maxHealth = 100;
     public float currentHealth;
     public HealthBar healthBar;
@@ -45,19 +56,31 @@ public class Player : MonoBehaviour
             healthBar.gameObject.SetActive(false);
         }
     }
-
-
-
     //Work in progress
     private void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(other.gameObject);
         AsteroidSpawner.count--;
         TakeDamage(20);
+        StartCoroutine(Flash());
     }
     void TakeDamage(float damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+    }
+    private IEnumerator Flash()
+    {
+        int temp = 0;
+        trigger.enabled = false;
+        while (temp < nFlashes)
+        {
+            sprite.color = flash;
+            yield return new WaitForSeconds(duration);
+            sprite.color = regularColor;
+            yield return new WaitForSeconds(duration);
+            temp++;
+        }
+        trigger.enabled = true;
     }
 }
