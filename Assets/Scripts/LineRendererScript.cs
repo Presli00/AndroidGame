@@ -18,7 +18,6 @@ public class LineRendererScript : MonoBehaviour
     void Update()
     {
         updateLaser();
-        
     }
 
     void updateLaser()
@@ -26,11 +25,16 @@ public class LineRendererScript : MonoBehaviour
         Vector2 topBound = new Vector2(firePoint.position.x, screenHeight);
         lineRenderer.SetPosition(0, firePoint.transform.position);
         lineRenderer.SetPosition(1, topBound);
-
-        Vector2 direction = topBound - (Vector2) transform.position;
+        Vector2 direction = topBound - (Vector2)transform.position;
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, direction.magnitude);
         if (hit)
         {
+            Collider2D asteroid = hit.transform.GetComponent<Collider2D>();
+            if (asteroid != null)
+            {
+                Destroy(asteroid.gameObject);
+                AsteroidSpawner.count--;
+            }
             lineRenderer.SetPosition(1, hit.point);
         }
     }
