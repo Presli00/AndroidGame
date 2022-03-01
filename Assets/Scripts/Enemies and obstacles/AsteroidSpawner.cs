@@ -14,6 +14,10 @@ public class AsteroidSpawner : MonoBehaviour
     public float respawnTime = 1.0f;
     private Rigidbody2D rb;
     public static int count = 0;
+
+    //Timer
+    private float maxTime = 0;
+    private float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,14 +30,20 @@ public class AsteroidSpawner : MonoBehaviour
     }
     private void Spawn(GameObject obj) //need to calculate the distance to set a size
     {
-        if (count != 4)
+        if (timer == maxTime)
         {
-            count++;
-            GameObject s = Instantiate(obj) as GameObject;
-            s.transform.position = new Vector2(Random.Range(-bounds.x, bounds.x), bounds.y * 2);
-            rb = s.GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(0f, -speed);
+            if (count != 4)
+            {
+                count++;
+                GameObject s = Instantiate(obj) as GameObject;
+                s.transform.position = new Vector2(Random.Range(-bounds.x, bounds.x), bounds.y * 2);
+                rb = s.GetComponent<Rigidbody2D>();
+                rb.velocity = new Vector2(0f, -speed);
+            }
+            timer = 0;
+            maxTime = Random.Range(1, 10);
         }
+        timer += Mathf.Round(100f * Time.deltaTime);
     }
     IEnumerator Spawner()
     {
