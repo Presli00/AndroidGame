@@ -7,7 +7,7 @@ public class Score : MonoBehaviour
 {
     public Transform player;
     public Text scoreText;
-    private float score = 0;
+    public float score = 0;
     private float pointsPerSecond = 5f;
     void Start()
     {
@@ -18,7 +18,7 @@ public class Score : MonoBehaviour
     {
         if (player.gameObject.active)
         {
-            score += pointsPerSecond * Time.deltaTime;
+            score += pointsPerSecond * Time.deltaTime * 0.35f;
             scoreText.text = "Score: " + Mathf.Round(score);
         }
     }

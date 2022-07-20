@@ -736,6 +736,59 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1271821607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1271821608}
+  - component: {fileID: 1271821609}
+  m_Layer: 0
+  m_Name: Enemy spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1271821608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271821607}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4.8260255, y: 10.09274, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1419912063}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1271821609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271821607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3188b509b5b03c842beb3f780a509290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 8242762078022277394, guid: 0b3f645b7caaa8f4bb31f7611bfaed1f, type: 3}
+  - {fileID: 1256408135922818012, guid: 07ebee8947112e040a824d5b022c51e3, type: 3}
+  - {fileID: 4791668376803467522, guid: 836e8eccac11e544aa309db8453cce69, type: 3}
+  - {fileID: 5290139737156436109, guid: 8169c9d15d300c240aa3d681771852c9, type: 3}
+  - {fileID: 2235838494000168174, guid: 9b47566625aac5448a12d5ee1f8c6bed, type: 3}
+  - {fileID: 4853170356169466255, guid: 834d898cb9d5233498ff64b18f4de7c0, type: 3}
+  - {fileID: 9044173369751547314, guid: dbccfc6da59ea78488b836987baf95f4, type: 3}
+  speed: 2
+  respawnTime: 0.5
 --- !u!1 &1385818553
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1616677255}
   scoreText: {fileID: 69976254}
+  score: 0
 --- !u!1 &1419912059
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,6 +1015,7 @@ Transform:
   m_LocalScale: {x: 620.32904, y: 1045.6399, z: 103.60319}
   m_Children:
   - {fileID: 1711242947}
+  - {fileID: 1271821608}
   m_Father: {fileID: 746305356}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5886,7 +5941,7 @@ GameObject:
   - component: {fileID: 1711242947}
   - component: {fileID: 1711242948}
   m_Layer: 0
-  m_Name: Enemy and obstacles Spawner
+  m_Name: Obstacles spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
