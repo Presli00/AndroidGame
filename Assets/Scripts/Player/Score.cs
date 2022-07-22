@@ -7,7 +7,7 @@ public class Score : MonoBehaviour
 {
     public Transform player;
     public Text scoreText;
-    public float score = 0;
+    public static float score = 0;
     private float pointsPerSecond = 5f;
     void Start()
     {

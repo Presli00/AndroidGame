@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(other.gameObject);
-        AsteroidSpawner.count--;
         TakeDamage(20);
         StartCoroutine(Flash());
     }

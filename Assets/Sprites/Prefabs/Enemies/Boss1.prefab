@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2295354965375512944}
   - component: {fileID: 7344442788893432937}
   - component: {fileID: 2151835430304164857}
+  - component: {fileID: -4641606491707000100}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: Untagged
@@ -143,3 +144,15 @@ PolygonCollider2D:
       - {x: -1.3329923, y: -1.4134152}
       - {x: -1.3329923, y: -1.4134152}
       - {x: -1.3329923, y: -1.4134152}
+--- !u!114 &-4641606491707000100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290139737156436109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d241d16f45e37fb469603aa3fd325212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

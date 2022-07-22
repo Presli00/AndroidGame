@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyDespawner : MonoBehaviour
+public class enemyShipDespawner : MonoBehaviour
 {
     private Vector2 bounds;
     private Camera mainCamera;
@@ -16,10 +16,9 @@ public class enemyDespawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < bounds.y * (-2))
+        if (Mathf.Round(transform.position.y).Equals(Mathf.Round(bounds.y / 1.5f)))
         {
-            AsteroidSpawner.count--;
-            Destroy(this.gameObject);
+            this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
         if (LineRendererScript.hit)
         {
@@ -27,7 +26,7 @@ public class enemyDespawner : MonoBehaviour
             if (collider == this.gameObject.GetComponent<Collider2D>())
             {
                 Destroy(this.gameObject);
-                AsteroidSpawner.count--;
+                Enemies.count--;
             }
         }
     }
@@ -35,7 +34,7 @@ public class enemyDespawner : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            AsteroidSpawner.count--;
+            Enemies.count--;
         }
     }
 }

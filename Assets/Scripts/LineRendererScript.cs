@@ -8,6 +8,7 @@ public class LineRendererScript : MonoBehaviour
     public LineRenderer lineRenderer;
     public Transform firePoint;
     public GameObject ship;
+    public static RaycastHit2D hit;
     float screenHeight;
     private void Start()
     {
@@ -26,8 +27,8 @@ public class LineRendererScript : MonoBehaviour
         lineRenderer.SetPosition(0, firePoint.transform.position);
         lineRenderer.SetPosition(1, topBound);
         Vector2 direction = topBound - (Vector2)transform.position;
-        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, direction.magnitude);
-        if (hit)
+        hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, direction.magnitude);
+        /*if (hit)
         {
             Collider2D asteroid = hit.transform.GetComponent<Collider2D>();
             if (asteroid != null)
@@ -35,7 +36,13 @@ public class LineRendererScript : MonoBehaviour
                 Destroy(asteroid.gameObject);
                 AsteroidSpawner.count--;
             }
+            Collider2D enemy = hit.transform.GetComponent<Collider2D>();
+            if (enemy != null)
+            {
+                Destroy(enemy.gameObject);
+                Enemies.count--;
+            }
             lineRenderer.SetPosition(1, hit.point);
-        }
+        }*/
     }
 }

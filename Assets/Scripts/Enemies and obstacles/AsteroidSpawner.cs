@@ -27,14 +27,14 @@ public class AsteroidSpawner : MonoBehaviour
     }
     private void Spawn(GameObject obj) //need to calculate the distance to set a size
     {
-            if (count != 4)
-            {
-                count++;
-                GameObject s = Instantiate(obj) as GameObject;
-                s.transform.position = new Vector2(Random.Range(-bounds.x, bounds.x), bounds.y * 2);
-                rb = s.GetComponent<Rigidbody2D>();
-                rb.velocity = new Vector2(0f, -speed);
-            }
+        if (count < 4)
+        {
+            count++;
+            GameObject s = Instantiate(obj) as GameObject;
+            s.transform.position = new Vector2(Random.Range(-bounds.x, bounds.x), bounds.y * 2);
+            rb = s.GetComponent<Rigidbody2D>();
+            rb.velocity = new Vector2(0f, -speed);
+        }
     }
     IEnumerator Spawner()
     {
