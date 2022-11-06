@@ -780,9 +780,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 8242762078022277394, guid: 0b3f645b7caaa8f4bb31f7611bfaed1f, type: 3}
+  - {fileID: 8415205021249755222, guid: 0b3f645b7caaa8f4bb31f7611bfaed1f, type: 3}
   - {fileID: 1256408135922818012, guid: 07ebee8947112e040a824d5b022c51e3, type: 3}
-  - {fileID: 4791668376803467522, guid: 836e8eccac11e544aa309db8453cce69, type: 3}
+  - {fileID: 7326348213235895839, guid: 836e8eccac11e544aa309db8453cce69, type: 3}
+  - {fileID: 9044173369751547314, guid: dbccfc6da59ea78488b836987baf95f4, type: 3}
+  bosses:
   - {fileID: 5290139737156436109, guid: 8169c9d15d300c240aa3d681771852c9, type: 3}
   - {fileID: 2235838494000168174, guid: 9b47566625aac5448a12d5ee1f8c6bed, type: 3}
   - {fileID: 4853170356169466255, guid: 834d898cb9d5233498ff64b18f4de7c0, type: 3}
@@ -919,7 +921,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1616677255}
   scoreText: {fileID: 69976254}
-  score: 0
 --- !u!1 &1419912059
 GameObject:
   m_ObjectHideFlags: 0
@@ -6078,6 +6079,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 6235533431869491969, guid: 1e6bb2ecaa8fb3d4da910291200f95b9, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6235533431869491970, guid: 1e6bb2ecaa8fb3d4da910291200f95b9, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6128,6 +6133,10 @@ PrefabInstance:
       objectReference: {fileID: 1156806065}
     - target: {fileID: 6235533431869491975, guid: 1e6bb2ecaa8fb3d4da910291200f95b9, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235533431869491975, guid: 1e6bb2ecaa8fb3d4da910291200f95b9, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -10,6 +10,7 @@ public class Enemies : MonoBehaviour
 
     //Enemie ships
     public GameObject[] enemies;
+    public GameObject[] bosses;
     public float speed = 2f;
     public float respawnTime = 0.5f;
     private Rigidbody2D rb;
@@ -46,9 +47,28 @@ public class Enemies : MonoBehaviour
             s.transform.position = new Vector2(Random.Range(-bounds.x, bounds.x), bounds.y * 2);
             rb = s.GetComponent<Rigidbody2D>();
             rb.velocity = new Vector2(0f, -speed);
-
         }
     }
-    //calcukate score to know when to spawn a boss
+
+    private void Update()
+    {
+        if (Score.score % 2000 == 0)
+        {
+            StopCoroutine(Spawner());
+            count = 0;
+            if (count < 1)
+            {
+                count++;
+                GameObject obj = bosses[Random.Range(0, enemies.Length)];
+                obj.transform.position = new Vector2(Random.Range(-bounds.x, bounds.x), bounds.y * 2);
+                rb = obj.GetComponent<Rigidbody2D>();
+                rb.velocity = new Vector2(0f, -speed);
+                if (!obj.active) {
+                    count = 0;
+                    StartCoroutine(Spawner());
+                }
+            }
+        }
+    }
 }
 

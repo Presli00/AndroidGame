@@ -28,21 +28,5 @@ public class LineRendererScript : MonoBehaviour
         lineRenderer.SetPosition(1, topBound);
         Vector2 direction = topBound - (Vector2)transform.position;
         hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, direction.magnitude);
-        /*if (hit)
-        {
-            Collider2D asteroid = hit.transform.GetComponent<Collider2D>();
-            if (asteroid != null)
-            {
-                Destroy(asteroid.gameObject);
-                AsteroidSpawner.count--;
-            }
-            Collider2D enemy = hit.transform.GetComponent<Collider2D>();
-            if (enemy != null)
-            {
-                Destroy(enemy.gameObject);
-                Enemies.count--;
-            }
-            lineRenderer.SetPosition(1, hit.point);
-        }*/
     }
 }
